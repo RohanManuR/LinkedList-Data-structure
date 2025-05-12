@@ -31,6 +31,11 @@ class LinkedListMainClassTest {
         assertTrue(list.insertAtPosition(70.00,10.10),"Value 10.10 should be inserted");
     }
 
+    // method to check testcases - delete element
+    @Test
+    void deleteValue() {
+        assertTrue(list.delete(20.20),"Value 20.20 should be deleted");
+    }
 
 
 }
