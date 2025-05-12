@@ -29,9 +29,12 @@ public class LinkedListMainClass<E extends Comparable> {
         // search element
         System.out.println(list.search(30));
         // inserting element based on element
-        list.insertAtPosition(300,100);
+        list.insertAtPosition(30,100);
+        // deleting the element
+        System.out.println( list.delete(80));
+        // sorting
+        list.sort();
         System.out.println(list);
-
     }
 
     // method to perform simple linked list
@@ -87,8 +90,7 @@ public class LinkedListMainClass<E extends Comparable> {
         Node node = new Node(data);
         Node temp = head;
         // traversing upto half of linked list
-        for(int i=1;i<this.size()/2;i++)
-        {
+        for(int i=1;i<this.size()/2;i++) {
             temp = temp.next;
         }
         node.next = temp.next;
@@ -125,8 +127,7 @@ public class LinkedListMainClass<E extends Comparable> {
         Node temp = this.head;
         Node previous = temp;
         // traversing upto last
-        while (temp.next!=null)
-        {
+        while (temp.next!=null) {
             previous = temp;
             temp = temp.next;
         }
@@ -142,8 +143,7 @@ public class LinkedListMainClass<E extends Comparable> {
         // temp node pointing to head
         Node temp = head;
         // traversing upto element found
-        while(temp!=null)
-        {
+        while(temp!=null) {
             if(temp.data.equals(data))
                 return true;
             temp = temp.next;
@@ -164,11 +164,9 @@ public class LinkedListMainClass<E extends Comparable> {
         Node node = new Node(data);
         Node temp = head;
         // loop to traverse the list
-        while(temp!=null)
-        {
+        while(temp!=null) {
             // checking the position data is present or not
-            if(temp.data.equals(positiondata))
-            {
+            if(temp.data.equals(positiondata)) {
                 node.next = temp.next;
                 temp.next = node;
                 return true;
@@ -177,6 +175,57 @@ public class LinkedListMainClass<E extends Comparable> {
         }
         System.out.println("Element "+positiondata+" is not present in list");
         return false;
+    }
+
+    // UC9-delete the value
+    // method to delete the value from the linked list
+    public boolean delete(E data)
+    {
+        // checking that is head is empty or not
+        if(head ==null) {
+            System.out.println("List is empty,.....");
+            return false;
+        }
+        // checking the first element is equal to delete element
+        if(head.data.equals(data)) {
+            head = head.next;
+            System.out.println("size of list : "+this.size());
+            return true;
+        }
+        // created temp node to point to head
+        Node temp = this.head;
+        // traversing loop to check element to delete
+        while(temp.next!=null) {
+            if(temp.next.data.equals(data)) {
+                temp.next = temp.next.next;
+                return true;
+            }
+            temp = temp.next;
+        }
+        System.out.println("size of list : "+this.size());
+        return false;
+    }
+
+    // UC10-sorting the elements
+    // method to sort the elements in linked list
+    public <E extends Comparable> void sort() {
+        // checking at least one element is present or not
+        if (head == null || head.next == null) {
+            System.out.println("List is too short to sort.");
+            return;
+        }
+        // sorting logic
+        for (int i = 0; i < size(); i++) {
+            Node temp = head;
+            while(temp.next!=null){
+                if (temp.data.compareTo(temp.next.data)>0) {
+                    Comparable swap = temp.data;
+                    temp.data = temp.next.data;
+                    temp.next.data = swap;
+                }
+                temp = temp.next;
+            }
+        }
     }
 
 
