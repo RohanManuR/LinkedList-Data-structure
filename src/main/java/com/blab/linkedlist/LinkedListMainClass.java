@@ -20,6 +20,11 @@ public class LinkedListMainClass<E extends Comparable> {
         list.addFromTail(70);
         // printing ref var to display elements
         System.out.println(list);
+        // adding data to inbetween
+        list.insertMid(80);
+        // removing first element
+        list.pop();
+        System.out.println(list);
     }
 
     // method to perform simple linked list
@@ -81,6 +86,22 @@ public class LinkedListMainClass<E extends Comparable> {
         }
         node.next = temp.next;
         temp.next = node;
+        return true;
+    }
+
+    // UC5 - Delete the first element in linked list
+    // method to delete the first node (pop)
+    public boolean pop()
+    {
+        // checking that is head is empty or not
+        if(head == null) {
+            System.out.println("list is empty");
+            return false;
+        }
+        // to delete the first element
+        Node temp = head;
+        this.head = head.next;
+        System.out.println("removed element : "+temp.data);
         return true;
     }
 
