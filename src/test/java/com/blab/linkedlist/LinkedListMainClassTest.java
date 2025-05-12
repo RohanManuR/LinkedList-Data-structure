@@ -24,4 +24,6 @@ class LinkedListMainClassTest {
     void search() {
         assertTrue(list.search(10.25),"Value 10.25 should be found");
     }
+
+
 }

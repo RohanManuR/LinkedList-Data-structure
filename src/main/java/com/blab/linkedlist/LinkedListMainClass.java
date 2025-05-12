@@ -12,7 +12,7 @@ public class LinkedListMainClass<E extends Comparable> {
         LinkedListMainClass list = new LinkedListMainClass();
         // adding the data from head
         list.addFromHead(70);
-        list.addFromHead(30);
+        list.addFromHead(40);
         list.addFromHead(56);
         // adding the data from tail
         list.addFromTail(56);
@@ -28,6 +28,8 @@ public class LinkedListMainClass<E extends Comparable> {
         list.popLast();
         // search element
         System.out.println(list.search(30));
+        // inserting element based on element
+        list.insertAtPosition(300,100);
         System.out.println(list);
 
     }
@@ -149,6 +151,33 @@ public class LinkedListMainClass<E extends Comparable> {
         return false;
     }
 
+    // UC8-insert based on element
+    //method to insert element next to based on the element position
+    public boolean insertAtPosition(E positiondata,E data)
+    {
+        // checking that is head is empty or not
+        if(head == null) {
+            System.out.println("list is empty");
+            return false;
+        }
+        // node object created
+        Node node = new Node(data);
+        Node temp = head;
+        // loop to traverse the list
+        while(temp!=null)
+        {
+            // checking the position data is present or not
+            if(temp.data.equals(positiondata))
+            {
+                node.next = temp.next;
+                temp.next = node;
+                return true;
+            }
+            temp = temp.next;
+        }
+        System.out.println("Element "+positiondata+" is not present in list");
+        return false;
+    }
 
 
     // method to diplay the size the linked list
