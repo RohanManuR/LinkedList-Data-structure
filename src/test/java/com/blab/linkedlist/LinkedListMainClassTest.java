@@ -25,5 +25,10 @@ class LinkedListMainClassTest {
         assertTrue(list.search(10.25),"Value 10.25 should be found");
     }
 
+    // method to check testcases - insert element based on element
+    @Test
+    void insertAtPosition() {
+        assertTrue(list.insertAtPosition(70.00,10.10),"Value 10.10 should be inserted");
+    }
 
 }
