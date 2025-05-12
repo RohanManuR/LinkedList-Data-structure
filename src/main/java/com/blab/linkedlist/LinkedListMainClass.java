@@ -9,11 +9,11 @@ public class LinkedListMainClass<E extends Comparable> {
         createSimpleLinkedList();
 
         // Creating Object to used defined linked list
-        LinkedListMainClass linkedListMainClass = new LinkedListMainClass();
-        linkedListMainClass.addFromHead(70);
-        linkedListMainClass.addFromHead(30);
-        linkedListMainClass.addFromHead(56);
-        System.out.println(linkedListMainClass);
+        LinkedListMainClass list = new LinkedListMainClass();
+        list.addFromHead(70);
+        list.addFromHead(30);
+        list.addFromHead(56);
+        System.out.println(list);
     }
 
     // method to perform simple linked list
