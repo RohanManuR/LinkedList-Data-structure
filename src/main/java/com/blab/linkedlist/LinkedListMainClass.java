@@ -48,7 +48,7 @@ public class LinkedListMainClass<E extends Comparable> {
     {
         // node object created
         Node node = new Node<>(data);
-        // checking that is head is empty
+        // checking that is head is empty or not
         if(this.head == null) {
             this.head = node;
         }
@@ -62,6 +62,45 @@ public class LinkedListMainClass<E extends Comparable> {
         return true;
     }
 
+    // UC4-Insert node inbetween
+    // creted a method to insert the node in between the nodes
+    public boolean insertMid(E data)
+    {
+        // checking that is head is empty or not
+        if(head == null) {
+            System.out.println("list is empty");
+            return false;
+        }
+        // node object created
+        Node node = new Node(data);
+        Node temp = head;
+        // traversing upto half of linked list
+        for(int i=1;i<this.size()/2;i++)
+        {
+            temp = temp.next;
+        }
+        node.next = temp.next;
+        temp.next = node;
+        return true;
+    }
+
+    // method to diplay the size the linked list
+    public int size()
+    {
+        // checking the list is empty or not
+        if(head==null)
+            return 0;
+        // variable to count size
+        int size = 0;
+        Node temp = this.head;
+        // loop to traverse the nodes
+        while(temp.next!=null)
+        {
+            size++;
+            temp = temp.next;
+        }
+        return ++size;
+    }
 
     // Override toString method to display data's present in linked list
     @Override
