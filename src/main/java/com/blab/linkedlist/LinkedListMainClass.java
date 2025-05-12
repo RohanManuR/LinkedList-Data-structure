@@ -24,6 +24,8 @@ public class LinkedListMainClass<E extends Comparable> {
         list.insertMid(80);
         // removing first element
         list.pop();
+        // removing last element
+        list.popLast();
         System.out.println(list);
     }
 
@@ -104,6 +106,30 @@ public class LinkedListMainClass<E extends Comparable> {
         System.out.println("removed element : "+temp.data);
         return true;
     }
+
+    // UC6-Delete last element
+    // method to delete last element in linked list(popLast())
+    public boolean popLast()
+    {
+        // checking that is head is empty or not
+        if(head == null) {
+            System.out.println("list is empty");
+            return false;
+        }
+        // temp node to store head
+        Node temp = this.head;
+        Node previous = temp;
+        // traversing upto last
+        while (temp.next!=null)
+        {
+            previous = temp;
+            temp = temp.next;
+        }
+        System.out.println("Removed element : "+temp.data);
+        previous.next = null;
+        return true;
+    }
+
 
     // method to diplay the size the linked list
     public int size()
