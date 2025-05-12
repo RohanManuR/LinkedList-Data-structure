@@ -26,7 +26,10 @@ public class LinkedListMainClass<E extends Comparable> {
         list.pop();
         // removing last element
         list.popLast();
+        // search element
+        System.out.println(list.search(30));
         System.out.println(list);
+
     }
 
     // method to perform simple linked list
@@ -129,6 +132,23 @@ public class LinkedListMainClass<E extends Comparable> {
         previous.next = null;
         return true;
     }
+
+    // UC7-Search element
+    // method to search element in linked list
+    public boolean search(E data)
+    {
+        // temp node pointing to head
+        Node temp = head;
+        // traversing upto element found
+        while(temp!=null)
+        {
+            if(temp.data.equals(data))
+                return true;
+            temp = temp.next;
+        }
+        return false;
+    }
+
 
 
     // method to diplay the size the linked list
