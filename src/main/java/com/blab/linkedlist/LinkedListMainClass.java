@@ -30,6 +30,8 @@ public class LinkedListMainClass<E extends Comparable> {
         System.out.println(list.search(30));
         // inserting element based on element
         list.insertAtPosition(300,100);
+        // delete the element
+        list.delete(80);
         System.out.println(list);
 
     }
@@ -179,6 +181,34 @@ public class LinkedListMainClass<E extends Comparable> {
         return false;
     }
 
+    // UC9-delete the value
+    // method to delete the value from the linked list
+    public boolean delete(E data)
+    {
+        // checking that is head is empty or not
+        if(head ==null) {
+            System.out.println("List is empty,.....");
+            return false;
+        }
+        // checking the first element is equal to delete element
+        if(head.data.equals(data)) {
+            head = head.next;
+            System.out.println("size of list : "+this.size());
+            return true;
+        }
+        // created temp node to point to head
+        Node temp = this.head;
+        // traversing loop to check element to delete
+        while(temp.next!=null) {
+            if(temp.next.data.equals(data)) {
+                temp.next = temp.next.next;
+                return true;
+            }
+            temp = temp.next;
+        }
+        System.out.println("size of list : "+this.size());
+        return false;
+    }
 
     // method to diplay the size the linked list
     public int size()
